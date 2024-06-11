@@ -34,6 +34,19 @@ class Local {
         }
     }
 
+    transfer(produto, local, qnt) {
+        const produtoObj = this.produto.find(p => p.produto === produto.name);
+        if (produtoObj && produtoObj.quantidade >= qnt) {
+            produtoObj.quantidade -= qnt;
+            if (produtoObj.quantidade === 0) {
+                this.produto = this.produto.filter(p => p.produto !== produto.name);
+            }
+            local.entrada(qnt);
+            console.log(`Transferido ${qnt} ${produto.name} de ${this.local} para ${local.local}`);
+        } else {
+            console.log(`Não há quantidade suficiente de ${produto.name} para transferir`);
+        }
+    }
     listarProdutos() {
         return this.produto;
     }
@@ -47,6 +60,9 @@ class Produto {
 }
 
 const LocalGranja = new Local('granja', 0);
+const LocalEntreposto = new Local ('entreposto', 0);
+const LocalCarro = new Local ('carro', 0);
+const LocalCliente = new Local('cliente',0);
 
 const Dezena = new Produto('Dezena', 10);
 const Duzia = new Produto('Duzia', 12);
@@ -65,6 +81,9 @@ const submitProducaoBtn = document.getElementById('submitProducao');
 const inputProduto = document.getElementById('produtoSelect');
 const inputQntProducao = document.getElementById('QntOvos1');
 const produtosGranja = document.getElementById('produtosGranja');
+const inputTransferencia= document.getElementById('localTransferencia');
+const TransProdutoSelect = document.getElementById('TransProdutoSelect');
+const BtnTransfer = document.getElementById('transferirProduto');
 
 function mostrarProdutos() {
     const produtos = LocalGranja.listarProdutos();
@@ -111,3 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 console.log(LocalGranja);
+LocalGranja.producao(Dezena,10);
+LocalGranja.transfer(Dezena,LocalEntreposto,1)
+
+
+console.log(LocalEntreposto)
