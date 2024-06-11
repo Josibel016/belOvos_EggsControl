@@ -9,12 +9,13 @@ class Local {
         if (qnt >= 0) {
             this.qntOvos += qnt;
         }
+        return qnt;
     }
 
     saida(qnt) {
         if (this.qntOvos >= qnt) {
             this.qntOvos -= qnt;
-        }
+        } return qnt; 
     }
 
     producao(produto, quantidade) {
