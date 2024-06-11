@@ -2,16 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Controle de Ovos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-<p> test</p>
-<p> test 2 </p>
-<p> test 3</p>
+    <header>
+        <h1>Controle de Ovos</h1>
+    </header>
 
+    <main>
+        <section id="controle">
+            <h2>Gerenciamento de Ovos</h2>
+            <div class="card">
+                <h3>Granja</h3>
+                <p>Saldo de Ovos: <span id="saldoGranja">0</span></p>
+                <p>Produtos na Granja:</p>
+                <ul id="produtosGranja"></ul>
 
+                <form id="form-eggs">
+                    <input type="number" id="receber-qntd" min="1" max="5000" required placeholder="Digite a quantidade que está entrando">
+                    <button type="submit">Adc Entrada</button>
+                </form>
+
+                <div class="campo">
+                    <h2>Produção de Produtos</h2>
+                    <div class="form-group">
+                        <label for="produtoSelect"><strong>Selecione o Produto:</strong></label>
+                        <select id="produtoSelect">
+                            <option value="Dezena">Dezena (10 ovos)</option>
+                            <option value="Duzia">Duzia (12 ovos)</option>
+                            <option value="Bandeja">Bandeja (30 ovos)</option>
+                        </select>
+                        
+                        <label for="QntOvos1"><strong>Qntd de Ovos</strong></label>
+                        <input type="number" id="QntOvos1" min="1" max="1000" required placeholder="Digite a quantidade desejada">
+                        <button id="submitProducao" type="button">Solicitar Produto</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Entreposto</h3>
+                <p>Saldo de Ovos: <span id="saldoEntreposto">0</span></p>
+                <button onclick="entrada('entreposto')">Entrada</button>
+                <button onclick="saida('entreposto')">Saída</button>
+                <button onclick="transferencia('entreposto', 'carro')">Transferir para Carro</button>
+            </div>
+
+            <div class="card">
+                <h3>Carro</h3>
+                <p>Saldo de Ovos: <span id="saldoCarro">0</span></p>
+                <button onclick="entrada('carro')">Entrada</button>
+                <button onclick="saida('carro')">Saída</button>
+                <button onclick="transferencia('carro', 'granja')">Transferir para Granja</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Josiane Belniowski</p>
+    </footer>
+
+    <script src="index.js"></script>
 </body>
 </html>
