@@ -65,7 +65,39 @@
 
             <div class="card">
                 <h3>Entreposto</h3>
+
                 <p>Saldo de Ovos: <span id="saldoEntreposto">0</span></p>
+                <p>Produtos no entreposto:</p>
+                <ul id="produtosEntreposto"></ul>
+
+               
+               
+               
+                <div class="campo">
+                    <h2>Transferência de Produtos</h2>
+                    <div class="form-group">
+                        <label for="TransProdutoSelect"><strong>Selecione o Produto:</strong></label>
+                        <select id="TransProdutoSelect">
+                            <option value="Dezena">Dezena</option>
+                            <option value="Duzia">Duzia</option>
+                            <option value="Bandeja">Bandeja</option>
+                        </select>
+                        <label for="localTransferencia"><strong>Local de Destino:</strong></label>
+                        <select id="localTransferencia">
+                            <option value="LocalEntreposto">Entreposto</option>
+                            <option value="LocalCarro">Carro</option>
+                            <option value="LocalCliente">Cliente</option>
+                        </select>
+                        <input type="number" id="QntTransf" min="1" placeholder="Quantidade">
+                        <button id="submitTransferencia">Transferir</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+                
+                
                 <button onclick="entrada('entreposto')">Entrada</button>
                 <button onclick="saida('entreposto')">Saída</button>
                 <button onclick="transferencia('entreposto', 'carro')">Transferir para Carro</button>
