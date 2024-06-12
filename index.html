@@ -42,28 +42,22 @@
                 </div>
 
                 <div class="campo">
-                    <h2>Transferencia de Produtos </h2>
+                    <h2>Transferência de Produtos</h2>
                     <div class="form-group">
-                        
-                        <select id="localTransferencia">
-                            <option value="localGranja"> Granja</option>
-                            <option value="localEntreposto">Entreposto</option>
-                            <option value="localCarro">Carro</option>
-                            <option value="localCliente">Cliente</option>
-                        </select>
-                        
-                        <label for="produtoSelect"><strong>Selecione o Produto:</strong></label>
+                        <label for="TransProdutoSelect"><strong>Selecione o Produto:</strong></label>
                         <select id="TransProdutoSelect">
-                            <option value="Dezena">Dezena (10 ovos)</option>
-                            <option value="Duzia">Duzia (12 ovos)</option>
-                            <option value="Bandeja">Bandeja (30 ovos)</option>
+                            <option value="Dezena">Dezena</option>
+                            <option value="Duzia">Duzia</option>
+                            <option value="Bandeja">Bandeja</option>
                         </select>
-                        
-                        <label for="QntOvos1"><strong>Qntd de Ovos</strong></label>
-                        <input type="number" id="QntOvos1" min="1" max="5000" required placeholder="Digite a quantidade desejada">
-                        <button id="transferirProduto" type="button">Transferir Produto</button>
-
-
+                        <label for="localTransferencia"><strong>Local de Destino:</strong></label>
+                        <select id="localTransferencia">
+                            <option value="LocalEntreposto">Entreposto</option>
+                            <option value="LocalCarro">Carro</option>
+                            <option value="LocalCliente">Cliente</option>
+                        </select>
+                        <input type="number" id="QntTransf" min="1" placeholder="Quantidade">
+                        <button id="submitTransferencia">Transferir</button>
                     </div>
                 </div>
 

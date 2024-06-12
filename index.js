@@ -74,6 +74,12 @@ const produtosMap = {
     'Bandeja': Bandeja
 };
 
+const locaisMap = {
+    'LocalEntreposto': LocalEntreposto,
+    'LocalCarro': LocalCarro,
+    'LocalCliente': LocalCliente
+};
+
 const form = document.getElementById('form-eggs');
 const inputQntEggs = document.getElementById('receber-qntd');
 const saldoGranja = document.getElementById('saldoGranja');
@@ -81,9 +87,13 @@ const submitProducaoBtn = document.getElementById('submitProducao');
 const inputProduto = document.getElementById('produtoSelect');
 const inputQntProducao = document.getElementById('QntOvos1');
 const produtosGranja = document.getElementById('produtosGranja');
-const inputTransferencia= document.getElementById('localTransferencia');
+
+
+const inputTransferencia = document.getElementById('localTransferencia');
 const TransProdutoSelect = document.getElementById('TransProdutoSelect');
-const BtnTransfer = document.getElementById('transferirProduto');
+const BtnTransfer = document.getElementById('submitTransferencia');
+const inputQntTransf = document.getElementById('QntTransf');
+
 
 function mostrarProdutos() {
     const produtos = LocalGranja.listarProdutos();
@@ -135,3 +145,32 @@ LocalGranja.transfer(Dezena,LocalEntreposto,1)
 
 
 console.log(LocalEntreposto)
+
+
+BtnTransfer.addEventListener('click', (evento)=>{
+    evento.preventDefault();
+    realizarTransferencia();
+    mostrarProdutos()
+
+})
+
+function realizarTransferencia(){
+    const produtoSolicitado= TransProdutoSelect.value;
+    const localDestino =inputTransferencia.value;
+    const quantidade = parseInt(inputQntTransf.value, 10);
+    const produtoObj = produtosMap[produtoSolicitado];
+    const localObj= locaisMap[localDestino];
+
+    if(produtoObj && localObj){
+        LocalGranja.transfer(produtoObj, localObj, quantidade);
+        saldoGranja.textContent=LocalGranja.qntOvos
+    }else {
+        console.log('Produto ou local não encontrado.')
+}
+
+
+}
+
+
+//agora preciso colocar na tela, e usar os botoes para pegar as informacos
+// 1 pegar as informacoes 2 usar nos medodos. 
