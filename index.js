@@ -173,6 +173,21 @@ function realizarTransferencia(){
 
 }
 
+const btnAdicionarTarefa= document.querySelector('.app__button--add-task');
+const formAdicionarTarefa = document.querySelector('.app__form-add-task')
+const textarea = document.querySelector('.app__form-textarea');
+const tarefas=[];
 
-//agora preciso colocar na tela, e usar os botoes para pegar as informacos
-// 1 pegar as informacoes 2 usar nos medodos. 
+btnAdicionarTarefa.addEventListener('click', () => {
+    formAdicionarTarefa.classList.toggle('hidden');
+    salvarTexto()
+})
+
+function salvarTexto(){
+   
+    const tarefa = {
+        descricao: textarea.value
+    }
+    tarefas.push(tarefa)
+console.log (tarefas)
+}

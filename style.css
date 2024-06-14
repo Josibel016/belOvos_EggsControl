@@ -111,6 +111,19 @@ label {
     }
 }
 
+    .hidden{
+        display: none;
+    }
+    .app__form-add-task {
+        padding: 1.6rem;
+        border-radius: 0.8rem;
+        background: var(--fundo-card);
+        font-size: 1.8rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%; 
+        font-family: Montserrat;
+    }
 
 footer {
     text-align: center;
