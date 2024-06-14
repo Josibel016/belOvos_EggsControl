@@ -181,6 +181,7 @@ const tarefas=[];
 btnAdicionarTarefa.addEventListener('click', () => {
     formAdicionarTarefa.classList.toggle('hidden');
     salvarTexto()
+    textarea.value='';
 })
 
 function salvarTexto(){
@@ -189,5 +190,5 @@ function salvarTexto(){
         descricao: textarea.value
     }
     tarefas.push(tarefa)
-console.log (tarefas)
+    localStorage.setItem('tarefas:',JSON.stringify(tarefas))
 }
