@@ -109,6 +109,7 @@ function salvarQndAdc() {
     const valor = parseInt(inputQntEggs.value, 10);
     LocalGranja.entrada(valor);
     saldoGranja.textContent = LocalGranja.qntOvos;
+    localStorage.setItem('produtos',JSON.stringify(produto))
     inputQntEggs.value = '';
 }
 
@@ -137,6 +138,7 @@ LocalGranja.entrada(2000);
 document.addEventListener('DOMContentLoaded', () => {
     saldoGranja.textContent = LocalGranja.qntOvos;
     mostrarProdutos();
+
 });
 
 console.log(LocalGranja);
